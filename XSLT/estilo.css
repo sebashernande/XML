@@ -1,0 +1,27 @@
+
+
+body {
+ font-family: Arial, sans-serif;
+ background-color: black;
+ color: aliceblue;
+ line-height: 1.6;
+ margin: 20px;
+}
+
+h1 {
+color: aliceblue;
+
+}
+
+ul {
+    list-style-type: none;
+    padding: 0%;
+}
+
+li {
+    background-color: black;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid slategrey;
+    border-radius: 5px;
+}
