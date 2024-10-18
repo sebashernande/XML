@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizacion de Datos</title>
+    <link rel="stylesheet" type="tex/css" href="estilo.css">
+    <script>
+        function mostrarDatos() {
+            const xmlData = localStorage.getItem('usuarioXML');
+            if (xmlData) {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlData, "application/xml");
+
+                const nombre = xmlDoc.getElementsByTagName("nombre")[0].textContent;
+                const email = xmlDoc.getElementsByTagName("email")[0].textContent;
+                const anio = xmlDoc.getElementsByTagName("anio")[0].textContent;
+                const numerodetel = xmlDoc.getElementsByTagName("numerodetel")[0].textContent;
+
+                document.getElementById("resultado").innerHTML = `
+                <h2>datos Recibidos:</h2>
+                <p><strong>nombre:</strong> ${nombre}</p>
+                <p><strong>email:</strong> ${email}</p>
+                <p><strong>anio de nacimiento:</strong> ${anio}</p>
+                <p><strong>numerodetel:</strong> ${numerodetel}</p>
+                 `;
+            } else {
+                document.getElementById("resultado").innerHTML = "<p>No se encontraron datos</p>"
+
+            }
+
+        } 
+    </script>
+</head>
+
+<body onload="mostrarDatos()">
+    <h1>Visualizacion de datos</h1>
+    <div id="resultado"></div>
+</body>
+
+</html>
